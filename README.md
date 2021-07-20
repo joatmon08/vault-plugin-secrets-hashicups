@@ -419,3 +419,8 @@ Content-Length: 14
 
 Invalid token
 ```
+
+## Additional references:
+
+- [Upgrading Plugins](https://www.vaultproject.io/docs/upgrading/plugins)
+- [List of Vault Plugins](https://www.vaultproject.io/docs/plugin-portal)

@@ -25,17 +25,7 @@ type hashiCupsToken struct {
 // hashiCupsToken defines a secret to store for a given role
 // and how it should be revoked or renewed.
 func (b *hashiCupsBackend) hashiCupsToken() *framework.Secret {
-	return &framework.Secret{
-		Type: hashiCupsTokenType,
-		Fields: map[string]*framework.FieldSchema{
-			"token": {
-				Type:        framework.TypeString,
-				Description: "HashiCups Token",
-			},
-		},
-		Revoke: b.tokenRevoke,
-		Renew:  b.tokenRenew,
-	}
+	return &framework.Secret{}
 }
 
 // tokenRevoke removes the token from the Vault storage API and calls the client to revoke the token

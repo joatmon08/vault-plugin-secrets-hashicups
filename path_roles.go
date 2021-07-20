@@ -43,52 +43,16 @@ func (r *hashiCupsRoleEntry) toResponseData() map[string]interface{} {
 func pathRole(b *hashiCupsBackend) []*framework.Path {
 	return []*framework.Path{
 		{
-			Pattern: "role/" + framework.GenericNameRegex("name"),
-			Fields: map[string]*framework.FieldSchema{
-				"name": {
-					Type:        framework.TypeLowerCaseString,
-					Description: "Name of the role",
-					Required:    true,
-				},
-				"username": {
-					Type:        framework.TypeString,
-					Description: "The username for the HashiCups product API",
-					Required:    true,
-				},
-				"ttl": {
-					Type:        framework.TypeDurationSecond,
-					Description: "Default lease for generated credentials. If not set or set to 0, will use system default.",
-				},
-				"max_ttl": {
-					Type:        framework.TypeDurationSecond,
-					Description: "Maximum time for role. If not set or set to 0, will use system default.",
-				},
-			},
-			Operations: map[logical.Operation]framework.OperationHandler{
-				logical.ReadOperation: &framework.PathOperation{
-					Callback: b.pathRolesRead,
-				},
-				logical.CreateOperation: &framework.PathOperation{
-					Callback: b.pathRolesWrite,
-				},
-				logical.UpdateOperation: &framework.PathOperation{
-					Callback: b.pathRolesWrite,
-				},
-				logical.DeleteOperation: &framework.PathOperation{
-					Callback: b.pathRolesDelete,
-				},
-			},
+			Pattern:         "role/" + framework.GenericNameRegex("name"),
+			Fields:          map[string]*framework.FieldSchema{},
+			Operations:      map[logical.Operation]framework.OperationHandler{},
 			HelpSynopsis:    pathRoleHelpSynopsis,
 			HelpDescription: pathRoleHelpDescription,
 		},
 		{
 			Pattern: "role/?$",
 
-			Operations: map[logical.Operation]framework.OperationHandler{
-				logical.ListOperation: &framework.PathOperation{
-					Callback: b.pathRolesList,
-				},
-			},
+			Operations: map[logical.Operation]framework.OperationHandler{},
 
 			HelpSynopsis:    pathRoleListHelpSynopsis,
 			HelpDescription: pathRoleListHelpDescription,

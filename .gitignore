@@ -16,3 +16,6 @@
 
 # Remove any built plugins
 vault/plugins
+
+
+!.vscode/launch.json

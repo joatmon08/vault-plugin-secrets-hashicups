@@ -45,16 +45,8 @@ func backend() *hashiCupsBackend {
 				"role/*",
 			},
 		},
-		Paths: framework.PathAppend(
-			pathRole(&b),
-			[]*framework.Path{
-				pathConfig(&b),
-				pathCredentials(&b),
-			},
-		),
-		Secrets: []*framework.Secret{
-			b.hashiCupsToken(),
-		},
+		Paths: framework.PathAppend(),
+		Secrets: []*framework.Secret{},
 		BackendType: logical.TypeLogical,
 		Invalidate:  b.invalidate,
 	}
